@@ -3,6 +3,7 @@ package com.gustavo.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -28,7 +29,7 @@ public class Users {
   private Float balance;
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "userTransactionId")
-  @Column(length = 5, nullable = false)
+     @JsonManagedReference
   private List<Transactions> userTransactionId = new ArrayList<>();
 }
  

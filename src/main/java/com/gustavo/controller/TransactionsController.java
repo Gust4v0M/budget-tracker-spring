@@ -11,16 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gustavo.models.Transactions;
 import com.gustavo.repository.TransactionsRepository;
+
+import lombok.AllArgsConstructor;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 
 @RestController
-
-
+@RequestMapping("/api/transaction")
+@AllArgsConstructor
 public class TransactionsController {
-
-    TransactionsRepository transactionsRepository;
+    
+    private TransactionsRepository transactionsRepository;
 
     @GetMapping
     public List<Transactions>list() {

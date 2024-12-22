@@ -19,7 +19,7 @@ public class Transactions {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "userTransaction_id", nullable = false)
+    @JoinColumn(name = "user_Transaction_id")
     private Users userTransactionId;
 
     @Column(length = 100, nullable = false)
@@ -30,7 +30,7 @@ public class Transactions {
 
     @Column(length = 20, nullable = false)
     private String type;
-
+    
     @Column(length = 40, nullable = false)
     private String category;
 }

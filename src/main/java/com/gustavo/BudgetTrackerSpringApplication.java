@@ -22,9 +22,11 @@ public class BudgetTrackerSpringApplication {
 @Bean
 	CommandLineRunner initDatabase(UsersRepository usersRepository){
 		return args -> {
-			usersRepository.deleteAll();
+
 
 			Users u = new Users();
+			
+			for(int i = 0; i< 2; ++i){
 			
 			u.setName("Gustavinho do Grau");		
 			u.setBalance(625.96f);
@@ -38,7 +40,7 @@ public class BudgetTrackerSpringApplication {
 			t.setUserTransactionId(u);
 			u.getUserTransactionId().add(t);
 			usersRepository.save(u);
-
+		}
 			
 		};
 	}

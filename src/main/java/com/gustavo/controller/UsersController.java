@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping("api/user")
 @AllArgsConstructor
 public class UsersController{
+  
 
   private final UsersRepository usersRepository;
 
