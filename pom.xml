@@ -39,6 +39,25 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		  <dependency>
+        <groupId>jakarta.validation</groupId>
+        <artifactId>jakarta.validation-api</artifactId>
+        <version>3.0.2</version> <!-- Verifique se há uma versão mais recente -->
+    </dependency>
+
+    <!-- Hibernate Validator (Implementação da API de validação) -->
+    <dependency>
+        <groupId>org.hibernate.validator</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>8.0.0.Final</version>
+    </dependency>
+
+    <!-- Dependência necessária para resolver expressões EL -->
+    <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>jakarta.el</artifactId>
+        <version>4.0.2</version>
+    </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
