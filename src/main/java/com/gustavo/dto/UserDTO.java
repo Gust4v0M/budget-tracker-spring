@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record UserDTO(  
     
-@JsonProperty("_id") long id,
+@JsonProperty("_id") Long id,
     
 @NotBlank @NotNull @Length(min = 5, max = 100) String name,
 @NotNull @Length(max = 10) Float balance) {

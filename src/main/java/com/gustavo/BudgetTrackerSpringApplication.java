@@ -4,6 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import com.gustavo.models.Transactions;
 import com.gustavo.models.Users;
 import com.gustavo.repository.UsersRepository;
 
@@ -22,10 +24,18 @@ public class BudgetTrackerSpringApplication {
 			Users u = new Users();
 			
 			u.setName("Gustavinho do Grau");		
-			u.setBalance(625.96f);	
+			u.setBalance(625.96f);
 			
-			usersRepository.save(u);
+			Transactions t = new Transactions();
 
+			t.setAmount(230.34f);
+			t.setName("mi band 9");
+			t.setType("expensive");
+			t.setCategory("Gift");
+			t.setUserTransactionId(u);
+			u.getTransactionId().add(t);
+
+			usersRepository.save(u);
 	};
 }
 }

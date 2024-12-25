@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gustavo.dto.UserDTO;
 import com.gustavo.models.Users;
 import com.gustavo.repository.UsersRepository;
+import com.gustavo.services.UserService;
 
 import lombok.AllArgsConstructor;
 
@@ -21,15 +23,19 @@ public class UsersController{
   
 
   private final UsersRepository usersRepository;
+  private final UserService userService;
 
   @GetMapping
-  public List<Users> list(){
-    return usersRepository.findAll();
+  public List<UserDTO> list(){
+    return userService.list();
   }
+  
 
   @PostMapping()
   @ResponseStatus(code = HttpStatus.CREATED)
     public Users create(@RequestBody Users users){
       return usersRepository.save(users);
     }
+
+
 }
