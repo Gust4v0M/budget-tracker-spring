@@ -1,9 +1,14 @@
 package com.gustavo.dto.mapper;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 
 import com.gustavo.dto.UserDTO;
+import com.gustavo.dto.TransactionsDTO;
 import com.gustavo.models.Users;
+
 
 @Component
 public class UserMapper {
@@ -11,7 +16,12 @@ public class UserMapper {
         if(user == null){
             return null;
         }
-        return new UserDTO(user.getId(), user.getName(), user.getBalance(), user.getTransactionId());
+        List<TransactionsDTO>transactionIds = user.getTransactionId()
+        .stream()
+        .map(transactionId -> new TransactionsDTO(transactionId.getId(),  transactionId.getAmount(), transactionId.getName(), transactionId.getType(),
+        transactionId.getCategory()))
+        .collect(Collectors.toList());
+        return new UserDTO(user.getId(), user.getName(), user.getBalance(), transactionIds);
     }
     public Users toEntity(UserDTO userDTO){
 
