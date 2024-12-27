@@ -11,7 +11,7 @@ public class UserMapper {
         if(user == null){
             return null;
         }
-        return new UserDTO(user.getId(), user.getName(), user.getBalance());
+        return new UserDTO(user.getId(), user.getName(), user.getBalance(), user.getTransactionId());
     }
     public Users toEntity(UserDTO userDTO){
 
